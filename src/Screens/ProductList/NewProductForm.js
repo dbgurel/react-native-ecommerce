@@ -68,6 +68,7 @@ const NewProductForm = ({ navigation }) => {
 }
 
 
+
 const styles = StyleSheet.create({
     input: {
         padding: 5,

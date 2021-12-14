@@ -37,6 +37,7 @@ export default function App() {
         <Stack.Screen name='NewProductForm' component={NewProductForm} options={{title:'Add a New Product'}} />
 
 
+
       </Stack.Navigator>
 
     </NavigationContainer>
