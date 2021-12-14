@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { View, Text, ScrollView } from 'react-native'
-import { Card } from 'react-native-elements'
-
+import { View, Text, ScrollView, StyleSheet  } from 'react-native'
+import { Button, Card } from 'react-native-elements'
 
 const SupplierList = ({navigation}) => {
 
@@ -24,15 +23,26 @@ const SupplierList = ({navigation}) => {
                     <Card key={key}>
                         <Card.Title>{item.name}</Card.Title>
                         <Card.Divider />
-                        <View>
+                        <View style={styles.cardContent}>
                             <Text>Company Name: {item.companyName}</Text>
                             <Text>Contact Name: {item.contactName}</Text>
-                            <Text>İd: {item.id}</Text>
+                            <Button title='Go To Detail' onPress={() => navigation.navigate('ProductDetail', {productItem : item} )} style={styles.button}/>
                         </View>
                     </Card>))
             }
         </ScrollView>
     )
 }
+
+const styles = StyleSheet.create({
+    button: {
+        width: 120,
+        marginTop:8
+    },
+    cardContent: {
+        alignItems: 'center'
+    }
+})
+
 
 export default SupplierList

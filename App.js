@@ -11,6 +11,7 @@ import SupplierList from './src/Screens/SupplierList/SupplierList';
 import HomeScreen from './src/Screens/Home Screen/HomeScreen';
 import ProductDetail from './src/Screens/ProductList/ProductDetail';
 import NewProductForm from './src/Screens/ProductList/NewProductForm';
+import CategoryDetail from './src/Screens/CategoryList/CategoryDetail';
 
 
 
@@ -31,6 +32,7 @@ export default function App() {
         <Stack.Screen name='OrderList' component={OrderList} />
         <Stack.Screen name='SupplierList' component={SupplierList} />
         <Stack.Screen name='CategoryList' component={CategoryList} />
+        <Stack.Screen name='CategoryDetail' component={CategoryDetail} />
         <Stack.Screen name='ProductDetail' component={ProductDetail} />
         <Stack.Screen name='NewProductForm' component={NewProductForm} options={{title:'Add a New Product'}} />
 
