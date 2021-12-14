@@ -19,8 +19,7 @@ const SupplierDetail = ({ navigation, route }) => {
                 <Text>Contact Name: {productItem?.contactName}</Text>
                 <Text>Street: {productItem?.address?.street}</Text>
                 <Text>Phone : {productItem?.address?.phone}</Text>
-
-
+                <Text>Country : {productItem?.address?.country}</Text>
             </View>
         </Card>)
 
