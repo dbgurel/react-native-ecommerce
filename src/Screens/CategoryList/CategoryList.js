@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { View, Text, ScrollView } from 'react-native'
-import { Card } from 'react-native-elements'
-
+import { View, Text, ScrollView, StyleSheet  } from 'react-native'
+import { Button, Card } from 'react-native-elements'
 
 const CategoryList = ({navigation}) => {
 
@@ -24,14 +23,28 @@ const CategoryList = ({navigation}) => {
                     <Card key={key}>
                         <Card.Title>{item.key}</Card.Title>
                         <Card.Divider />
-                        <View>
-                            <Text>Description: {item.description}</Text>
-                            <Text>Name: {item.name}</Text>
+                        <View style={styles.cardContent}>
+                        
+                            <Text>{item.name}</Text>
+
+                
+                            <Button title='Go To Detail' onPress={() => navigation.navigate('CategoryDetail', {categoryItem : item} )} style={styles.button}/>
                         </View>
                     </Card>))
             }
         </ScrollView>
     )
 }
+ 
+const styles = StyleSheet.create({
+    button: {
+        width: 120,
+        marginTop:8
+    },
+    cardContent: {
+        alignItems: 'center'
+    },
+})
+
 
 export default CategoryList

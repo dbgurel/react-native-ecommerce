@@ -10,6 +10,7 @@ import OrderList from './src/Screens/OrderList/OrderList';
 import SupplierList from './src/Screens/SupplierList/SupplierList';
 import HomeScreen from './src/Screens/Home Screen/HomeScreen';
 import ProductDetail from './src/Screens/ProductList/ProductDetail';
+import CategoryDetail from './src/Screens/CategoryList/CategoryDetail';
 
 
 
@@ -31,6 +32,7 @@ export default function App() {
         <Stack.Screen name='SupplierList' component={SupplierList} />
         <Stack.Screen name='CategoryList' component={CategoryList} />
         <Stack.Screen name='ProductDetail' component={ProductDetail} />
+        <Stack.Screen name='CategoryDetail' component={CategoryDetail} />
 
 
 
