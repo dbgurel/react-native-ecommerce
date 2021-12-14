@@ -3,6 +3,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import ProductList from './src/Screens/ProductList/ProductList';
+import CategoryList from './src/Screens/CategoryList/CategoryList';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import AppTabNavigator from './src/Screens/Main Navigator/AppTabNavigator';
 
@@ -30,6 +31,7 @@ export default function App() {
 
       </Stack.Navigator>
       <ProductList></ProductList>
+      <CategoryList></CategoryList>
 
     </NavigationContainer>
   );
