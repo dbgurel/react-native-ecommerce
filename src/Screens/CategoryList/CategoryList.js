@@ -23,9 +23,10 @@ const CategoryList = ({navigation}) => {
                     <Card key={key}>
                         <Card.Title>{item.key}</Card.Title>
                         <Card.Divider />
-                        <View style={styles.cardContent}>
+                        <View style={styles.cardView}>
                         
-                            <Text>{item.name}</Text>
+                            <Text style={styles.cardContenty}>{item.name}</Text>
+                            
 
                 
                             <Button title='Go To Detail' onPress={() => navigation.navigate('CategoryDetail', {categoryItem : item} )} style={styles.button}/>
@@ -41,8 +42,15 @@ const styles = StyleSheet.create({
         width: 120,
         marginTop:8
     },
-    cardContent: {
-        alignItems: 'center'
+    cardView: {
+        alignItems: 'center',
+        
+    },
+
+    cardContenty: {
+        alignItems: 'center',
+        fontweight: 'bold',
+        fontSize:25,
     },
 })
 

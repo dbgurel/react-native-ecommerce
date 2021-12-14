@@ -16,7 +16,7 @@ const CategoryDetail = ({ navigation, route }) => {
             <View style={styles.cardContent}>
                 <Text>ID: {categoryItem?.id}</Text>
                 <Text>Description: {categoryItem?.description}</Text>
-                <Text>name: {categoryItem?.name}</Text>
+                
         
             </View>
         </Card>)
