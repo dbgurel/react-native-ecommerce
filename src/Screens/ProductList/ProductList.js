@@ -18,7 +18,7 @@ const ProductList = ({ navigation }) => {
                 setFetchStatus(true)
             })
 
-    }, [])
+    }, [productList])
 
     return (
         <>
