@@ -7,6 +7,7 @@ import CategoryList from '../CategoryList/CategoryList';
 import HomeScreen from '../Home Screen/HomeScreen';
 import OrderList from '../OrderList/OrderList';
 import SupplierList from '../SupplierList/SupplierList';
+import { MaterialIcons } from '@expo/vector-icons';
 
 
 
@@ -40,7 +41,7 @@ const AppTabNavigator = () => {
 
                 tabBarLabel: 'Siparişler',
                 tabBarIcon: ({ color, size }) => (
-                    <Ionicons name="gift-outline" color={color} size={size} />
+                    <Ionicons name="ios-receipt-outline" color={color} size={size} />
                 ),
 
             }} />
@@ -49,7 +50,7 @@ const AppTabNavigator = () => {
 
                 tabBarLabel: 'Tedarikçiler',
                 tabBarIcon: ({ color, size }) => (
-                    <Ionicons name="gift-outline" color={color} size={size} />
+                    <MaterialIcons name="flight-takeoff" size={size} color={color} />
                 ),
 
             }} />
@@ -58,7 +59,8 @@ const AppTabNavigator = () => {
 
                 tabBarLabel: 'Kategoriler',
                 tabBarIcon: ({ color, size }) => (
-                    <Ionicons name="gift-outline" color={color} size={size} />
+                    <MaterialIcons name="category" size={size} color={color} />
+
                 ),
 
             }} />
