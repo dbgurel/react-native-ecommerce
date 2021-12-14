@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, ScrollView } from 'react-native'
 import { Card } from 'react-native-elements'
 
 
@@ -18,7 +18,7 @@ const SupplierList = () => {
     }, [])
 
     return (
-        <View>
+        <ScrollView>
             {
                 supplierList && supplierList.map((item, key) => (
                     <Card key={key}>
@@ -31,7 +31,7 @@ const SupplierList = () => {
                         </View>
                     </Card>))
             }
-        </View>
+        </ScrollView>
     )
 }
 
