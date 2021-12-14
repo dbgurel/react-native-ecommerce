@@ -25,8 +25,9 @@ const SupplierList = () => {
                         <Card.Title>{item.name}</Card.Title>
                         <Card.Divider />
                         <View>
-                            <Text>Price: {item.companyName}</Text>
-                            <Text>Stock: {item.contactName}</Text>
+                            <Text>Company Name: {item.companyName}</Text>
+                            <Text>Contact Name: {item.contactName}</Text>
+                            <Text>İd: {item.id}</Text>
                         </View>
                     </Card>))
             }
