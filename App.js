@@ -6,6 +6,9 @@ import ProductList from './src/Screens/ProductList/ProductList';
 import CategoryList from './src/Screens/CategoryList/CategoryList';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import AppTabNavigator from './src/Screens/Main Navigator/AppTabNavigator';
+import OrderList from './src/Screens/OrderList/OrderList';
+import SupplierList from './src/Screens/SupplierList/SupplierList';
+import HomeScreen from './src/Screens/Home Screen/HomeScreen';
 
 
 
@@ -30,8 +33,6 @@ export default function App() {
 
 
       </Stack.Navigator>
-      <ProductList></ProductList>
-      <CategoryList></CategoryList>
 
     </NavigationContainer>
   );
