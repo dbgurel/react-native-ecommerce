@@ -14,7 +14,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 const Tab = createBottomTabNavigator();
 
 
-const AppTabNavigator = () => {
+const AppTabNavigator = ({navigation}) => {
 
 
 

@@ -3,7 +3,7 @@ import { View, Text, ScrollView } from 'react-native'
 import { Card } from 'react-native-elements'
 
 
-const CategoryList = () => {
+const CategoryList = ({navigation}) => {
 
     const [CategoryList, setCategoryList] = useState([])
 

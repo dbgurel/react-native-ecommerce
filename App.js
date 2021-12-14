@@ -9,6 +9,7 @@ import AppTabNavigator from './src/Screens/Main Navigator/AppTabNavigator';
 import OrderList from './src/Screens/OrderList/OrderList';
 import SupplierList from './src/Screens/SupplierList/SupplierList';
 import HomeScreen from './src/Screens/Home Screen/HomeScreen';
+import ProductDetail from './src/Screens/ProductList/ProductDetail';
 
 
 
@@ -29,6 +30,7 @@ export default function App() {
         <Stack.Screen name='OrderList' component={OrderList} />
         <Stack.Screen name='SupplierList' component={SupplierList} />
         <Stack.Screen name='CategoryList' component={CategoryList} />
+        <Stack.Screen name='ProductDetail' component={ProductDetail} />
 
 
 

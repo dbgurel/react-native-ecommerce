@@ -3,7 +3,7 @@ import { View, Text, ScrollView } from 'react-native'
 import { Card } from 'react-native-elements'
 
 
-const OrderList = () => {
+const OrderList = ({navigation}) => {
 
     const [orderList, setOrderList] = useState([])
 
