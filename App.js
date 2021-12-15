@@ -12,9 +12,7 @@ import HomeScreen from './src/Screens/Home Screen/HomeScreen';
 import ProductDetail from './src/Screens/ProductList/ProductDetail';
 import NewProductForm from './src/Screens/ProductList/NewProductForm';
 import CategoryDetail from './src/Screens/CategoryList/CategoryDetail';
-
-
-
+import NewCategoryForm from './src/Screens/CategoryList/NewCategoryForm';
 
 
 export default function App() {
@@ -35,6 +33,7 @@ export default function App() {
         <Stack.Screen name='CategoryDetail' component={CategoryDetail} />
         <Stack.Screen name='ProductDetail' component={ProductDetail} />
         <Stack.Screen name='NewProductForm' component={NewProductForm} options={{title:'Add a New Product'}} />
+        <Stack.Screen name='NewCategoryForm' component={NewCategoryForm} options={{title:'Add a New Category'}} />
 
 
 
