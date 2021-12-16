@@ -13,6 +13,7 @@ import ProductDetail from './src/Screens/ProductList/ProductDetail';
 import NewProductForm from './src/Screens/ProductList/NewProductForm';
 import CategoryDetail from './src/Screens/CategoryList/CategoryDetail';
 import NewCategoryForm from './src/Screens/CategoryList/NewCategoryForm';
+import OrderDetail from './src/Screens/OrderList/OrderDetail';
 
 
 export default function App() {
@@ -34,6 +35,7 @@ export default function App() {
         <Stack.Screen name='ProductDetail' component={ProductDetail} />
         <Stack.Screen name='NewProductForm' component={NewProductForm} options={{title:'Add a New Product'}} />
         <Stack.Screen name='NewCategoryForm' component={NewCategoryForm} options={{title:'Add a New Category'}} />
+        <Stack.Screen name='OrderDetail' component={OrderDetail} />
 
 
 
