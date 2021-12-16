@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { View, Text, ScrollView, StyleSheet } from 'react-native'
+import React, { useContext, useEffect, useState,  } from 'react'
+import { View, Text, ScrollView, StyleSheet, ActivityIndicator } from 'react-native'
 import { Card } from 'react-native-elements'
 import { Button } from 'react-native-elements'
 
@@ -9,6 +9,7 @@ import { Button } from 'react-native-elements'
 const OrderList = ({navigation}) => {
 
     const [orderList, setOrderList] = useState([])
+    const [fetchStatus, setFetchStatus] = useState(false)
 
     useEffect(() => {
 
@@ -16,12 +17,17 @@ const OrderList = ({navigation}) => {
             .then((res) => res.json())
             .then(data => {
                 setOrderList(data)
+                setFetchStatus(true)
             })
 
-    }, [])
+    }, [orderList])
 
     return (
-        <ScrollView>
+        <> { fetchStatus == false ? (<View style={styles.loadingContainer}><ActivityIndicator size="large" color="#0000ff" /></View>)
+
+        :
+        <ScrollView style={styles.container}>
+            <View style={styles.addButtonContainer}><Button title='Add New Order' onPress={() => navigation.navigate('NewOrderForm')} buttonStyle={styles.addButton} /></View>
             {
                 orderList && orderList.map((item, key) => (
                     <Card key={key}>
@@ -35,18 +41,41 @@ const OrderList = ({navigation}) => {
                         </View>
                     </Card>))
             }
-        </ScrollView>
+        </ScrollView>} </>
+        
     )
 }
 
 const styles = StyleSheet.create({
     button: {
         width: 120,
-        marginTop:8
+        marginTop: 8,
+        alignSelf: 'center',
+    }, 
+    addButton: {
+        width: 200,
+        backgroundColor: 'tomato',
+    },
+    addButtonContainer: {
+        width: '100%',
+        marginTop: 15,
+        flex:1,
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     cardContent: {
         alignItems: 'center'
+    },
+    container: {
+        display: 'flex',
+        flexDirection: 'column',
+    },
+    loadingContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
     }
+   
 })
 
 export default OrderList
