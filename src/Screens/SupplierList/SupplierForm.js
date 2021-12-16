@@ -1,14 +1,11 @@
 import { Formik } from 'formik'
-import React, { useContext } from 'react'
+import React from 'react'
 import { View, Text, TextInput, StyleSheet } from 'react-native'
 import { Button } from 'react-native-elements'
-import ProductContext from '../../context/ProductContext'
 
 
 
 const NewProductForm = ({ navigation }) => {
-
-    const { addedProduct, setAddedProduct } = useContext(ProductContext)
 
     const submitForm = (values) => {
 
@@ -18,29 +15,28 @@ const NewProductForm = ({ navigation }) => {
                 'Accept': 'application/json',
                 'Content-type': 'application/json'
             },
-            body: JSON.stringify({ name: values.name, id: Number(values.id), unitPrice: Number(values.unitPrice), unitsInStock: Number(values.unitsInStock) })
+            body: JSON.stringify({ companyName: values.companyName, id: Number(values.id), contactName: (values.contactName), contactTitle: (values.contactTitle) })
         }
 
-        fetch('https://northwind.vercel.app/api/products', requestOptions)
+        fetch('https://northwind.vercel.app/api/suppliers', requestOptions)
             .then((res) => res.json())
             .then(data => {
                 alert('Ürün başarıyla eklenmiştir.')
-                setAddedProduct(() => addedProduct + 1)
             })
     }
 
     return (
         <Formik
-            initialValues={{ id: '', unitPrice: '', name: '', unitsInStock: '' }}
+            initialValues={{ companyName: '', id: '', contactName: '', contactTitle: '' }}
             onSubmit={values => submitForm(values)}
         >
             {({ handleChange, handleSubmit, values }) => (
                 <View>
                     <TextInput
-                        onChangeText={handleChange('name')}
-                        value={values.name}
+                        onChangeText={handleChange('companyName')}
+                        value={values.companyName}
                         style={styles.input}
-                        placeholder='Enter a name...'
+                        placeholder='Enter a companyName...'
                     />
 
                     <TextInput
@@ -51,17 +47,17 @@ const NewProductForm = ({ navigation }) => {
                     />
 
                     <TextInput
-                        onChangeText={handleChange('unitPrice')}
-                        value={values.unitPrice}
+                        onChangeText={handleChange('contactName')}
+                        value={values.contactName}
                         style={styles.input}
-                        placeholder='Enter a unit price value...'
+                        placeholder='Enter a Contact Name...'
                     />
 
                     <TextInput
-                        onChangeText={handleChange('unitsInStock')}
-                        value={values.unitsInStock}
+                        onChangeText={handleChange('contactTitle')}
+                        value={values.contactTitle}
                         style={styles.input}
-                        placeholder='Enter a stock information...'
+                        placeholder='Enter a Contact Title...'
                     />
 
                     <Button title='Add Product to the List' onPress={handleSubmit} style={styles.button} />
