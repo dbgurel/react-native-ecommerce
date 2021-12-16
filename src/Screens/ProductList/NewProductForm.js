@@ -1,11 +1,14 @@
 import { Formik } from 'formik'
-import React from 'react'
+import React, { useContext } from 'react'
 import { View, Text, TextInput, StyleSheet } from 'react-native'
 import { Button } from 'react-native-elements'
+import ProductContext from '../../context/ProductContext'
 
 
 
 const NewProductForm = ({ navigation }) => {
+
+    const { addedProduct, setAddedProduct } = useContext(ProductContext)
 
     const submitForm = (values) => {
 
@@ -22,6 +25,7 @@ const NewProductForm = ({ navigation }) => {
             .then((res) => res.json())
             .then(data => {
                 alert('Ürün başarıyla eklenmiştir.')
+                setAddedProduct(() => addedProduct + 1)
             })
     }
 

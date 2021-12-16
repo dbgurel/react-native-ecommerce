@@ -14,6 +14,7 @@ import NewProductForm from './src/Screens/ProductList/NewProductForm';
 import CategoryDetail from './src/Screens/CategoryList/CategoryDetail';
 import NewCategoryForm from './src/Screens/CategoryList/NewCategoryForm';
 import OrderDetail from './src/Screens/OrderList/OrderDetail';
+import { ProductProvider } from './src/context/ProductContext';
 
 
 export default function App() {
@@ -21,27 +22,31 @@ export default function App() {
   const Stack = createNativeStackNavigator();
 
   return (
-    <NavigationContainer>
+    <ProductProvider>
 
-      <Stack.Navigator initialRouteName='AppTabNavigator'>
+      <NavigationContainer>
 
-        <Stack.Screen name='AppTabNavigator' component={AppTabNavigator} options={{headerShown:false}} />
-        <Stack.Screen name='Home' component={HomeScreen} options={{title:'Home Screen'}} />
-        <Stack.Screen name='ProductList' component={ProductList} />
-        <Stack.Screen name='OrderList' component={OrderList} />
-        <Stack.Screen name='SupplierList' component={SupplierList} />
-        <Stack.Screen name='CategoryList' component={CategoryList} />
-        <Stack.Screen name='CategoryDetail' component={CategoryDetail} />
-        <Stack.Screen name='ProductDetail' component={ProductDetail} />
-        <Stack.Screen name='NewProductForm' component={NewProductForm} options={{title:'Add a New Product'}} />
-        <Stack.Screen name='NewCategoryForm' component={NewCategoryForm} options={{title:'Add a New Category'}} />
-        <Stack.Screen name='OrderDetail' component={OrderDetail} />
+        <Stack.Navigator initialRouteName='AppTabNavigator'>
+
+          <Stack.Screen name='AppTabNavigator' component={AppTabNavigator} options={{ headerShown: false }} />
+          <Stack.Screen name='Home' component={HomeScreen} options={{ title: 'Home Screen' }} />
+          <Stack.Screen name='ProductList' component={ProductList} />
+          <Stack.Screen name='OrderList' component={OrderList} />
+          <Stack.Screen name='SupplierList' component={SupplierList} />
+          <Stack.Screen name='CategoryList' component={CategoryList} />
+          <Stack.Screen name='CategoryDetail' component={CategoryDetail} />
+          <Stack.Screen name='ProductDetail' component={ProductDetail} />
+          <Stack.Screen name='NewProductForm' component={NewProductForm} options={{ title: 'Add a New Product' }} />
+          <Stack.Screen name='NewCategoryForm' component={NewCategoryForm} options={{ title: 'Add a New Category' }} />
+          <Stack.Screen name='OrderDetail' component={OrderDetail} />
 
 
 
-      </Stack.Navigator>
+        </Stack.Navigator>
 
-    </NavigationContainer>
+      </NavigationContainer>
+    </ProductProvider>
+
   );
 }
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import { View, Text } from 'react-native'
 import ProductList from '../ProductList/ProductList';
@@ -8,15 +8,16 @@ import HomeScreen from '../Home Screen/HomeScreen';
 import OrderList from '../OrderList/OrderList';
 import SupplierList from '../SupplierList/SupplierList';
 import { MaterialIcons } from '@expo/vector-icons';
+import ProductContext from '../../context/ProductContext';
 
 
 
 const Tab = createBottomTabNavigator();
 
 
-const AppTabNavigator = ({navigation}) => {
+const AppTabNavigator = ({ navigation }) => {
 
-
+    const { addedProduct } = useContext(ProductContext)
 
     return (
         <Tab.Navigator>
@@ -34,6 +35,7 @@ const AppTabNavigator = ({navigation}) => {
                 tabBarIcon: ({ color, size }) => (
                     <Ionicons name="gift-outline" color={color} size={size} />
                 ),
+                tabBarBadge: addedProduct
 
             }} />
 
