@@ -15,7 +15,7 @@ const NewOrderForm = ({ navigation }) => {
                 'Accept': 'application/json',
                 'Content-type': 'application/json'
             },
-            body: JSON.stringify({ customerId: values.customerId, orderDate: Number(values.orderDate), freight: Number(values.freight), shipName: (values.shipName) })
+            body: JSON.stringify({ customerId: values.customerId, orderDate: values.orderDate, freight: Number(values.freight), shipName: values.shipName })
         }
 
         fetch('https://northwind.vercel.app/api/orders', requestOptions)
@@ -34,28 +34,28 @@ const NewOrderForm = ({ navigation }) => {
                 <View>
                     <TextInput
                         onChangeText={handleChange('customerId')}
-                        value={values.name}
+                        value={values.customerId}
                         style={styles.input}
                         placeholder='Enter a customerId...'
                     />
 
                     <TextInput
                         onChangeText={handleChange('orderDate')}
-                        value={values.id}
+                        value={values.orderDate}
                         style={styles.input}
                         placeholder='Enter an orderDate...'
                     />
 
                     <TextInput
                         onChangeText={handleChange('freight')}
-                        value={values.unitPrice}
+                        value={values.freight}
                         style={styles.input}
                         placeholder='Enter a freight...'
                     />
 
                     <TextInput
                         onChangeText={handleChange('shipName')}
-                        value={values.unitsInStock}
+                        value={values.shipName}
                         style={styles.input}
                         placeholder='Enter a shipName...'
                     />
