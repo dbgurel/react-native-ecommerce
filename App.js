@@ -43,7 +43,7 @@ export default function App() {
           <Stack.Screen name='NewOrderForm' component={NewOrderForm} options={{ title: 'Add a New Order' }} />
 
 
-          NewOrderForm
+          
         </Stack.Navigator>
 
       </NavigationContainer>

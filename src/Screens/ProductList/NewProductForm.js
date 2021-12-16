@@ -3,12 +3,27 @@ import React, { useContext } from 'react'
 import { View, Text, TextInput, StyleSheet } from 'react-native'
 import { Button } from 'react-native-elements'
 import ProductContext from '../../context/ProductContext'
-
+import * as yup from 'yup'
+import { string } from 'yup/lib/locale'
 
 
 const NewProductForm = ({ navigation }) => {
 
     const { addedProduct, setAddedProduct } = useContext(ProductContext)
+
+    const formValidationSchema = yup.object().shape({
+        name: yup.string()
+            .required('Name is required'),
+
+        id: yup.number()
+            .required('ID is required'),
+
+        unitPrice: yup.number()
+            .required('Price is required'),
+
+        unitsInStock: yup.number()
+            .required('Stock information is required')
+    })
 
     const submitForm = (values) => {
 
@@ -31,10 +46,11 @@ const NewProductForm = ({ navigation }) => {
 
     return (
         <Formik
+            validationSchema={formValidationSchema}
             initialValues={{ id: '', unitPrice: '', name: '', unitsInStock: '' }}
             onSubmit={values => submitForm(values)}
         >
-            {({ handleChange, handleSubmit, values }) => (
+            {({ handleChange, handleSubmit, values, errors }) => (
                 <View>
                     <TextInput
                         onChangeText={handleChange('name')}
@@ -42,13 +58,14 @@ const NewProductForm = ({ navigation }) => {
                         style={styles.input}
                         placeholder='Enter a name...'
                     />
-
+                    {errors.name && <Text style={styles.errorMessage}>{errors.name}</Text>}
                     <TextInput
                         onChangeText={handleChange('id')}
                         value={values.id}
                         style={styles.input}
                         placeholder='Enter an ID number...'
                     />
+                    {errors.id && <Text style={styles.errorMessage}>{errors.id}</Text>}
 
                     <TextInput
                         onChangeText={handleChange('unitPrice')}
@@ -56,6 +73,7 @@ const NewProductForm = ({ navigation }) => {
                         style={styles.input}
                         placeholder='Enter a unit price value...'
                     />
+                    {errors.unitPrice && <Text style={styles.errorMessage}>{errors.unitPrice}</Text>}
 
                     <TextInput
                         onChangeText={handleChange('unitsInStock')}
@@ -63,6 +81,7 @@ const NewProductForm = ({ navigation }) => {
                         style={styles.input}
                         placeholder='Enter a stock information...'
                     />
+                    {errors.unitsInStock && <Text style={styles.errorMessage}>{errors.unitsInStock}</Text>}
 
                     <Button title='Add Product to the List' onPress={handleSubmit} style={styles.button} />
                 </View>
@@ -86,6 +105,11 @@ const styles = StyleSheet.create({
         marginHorizontal: 20,
         margin: 5,
         borderRadius: 20,
+    },
+    errorMessage: {
+        fontSize: 10,
+        color: 'red',
+        marginHorizontal:20
     }
 })
 
