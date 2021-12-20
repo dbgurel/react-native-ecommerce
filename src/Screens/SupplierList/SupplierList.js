@@ -8,14 +8,42 @@ const SupplierList = ({ navigation }) => {
     const [fetchStatus, setFetchStatus] = useState(false)
     useEffect(() => {
 
-        fetch('https://northwind.vercel.app/api/suppliers')
+        fetch('https://northwind.vercel.app/api/suppliers/')
             .then((res) => res.json())
             .then(data => {
                 setSupplierList(data)
+                setFetchStatus(true)
             })
 
     }, [])
+    useEffect(() => {
+        getSuppliers()
+    }, [])
 
+    const getSuppliers = () => {
+        fetch('https://northwind.vercel.app/api/suppliers/')
+        .then((res) => res.json())
+        .then((data) => {
+            setSupplierList(data);
+        })
+    } 
+    const deleteSupplier = (id) => {
+        let requestOptions = {
+            method: 'DELETE',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        }
+
+        fetch('https://northwind.vercel.app/api/suppliers/' + id, requestOptions)
+        .then((res) => res.json())
+        .then((data) => {
+            getSuppliers();
+        })
+
+
+    }
     return (
         <> {
             fetchStatus == false ? (<View style={styles.loadingContainer}><ActivityIndicator size="large" color="#0000ff" /></View>)
@@ -26,12 +54,13 @@ const SupplierList = ({ navigation }) => {
                         {
                             supplierList && supplierList.map((item, key) => (
                                 <Card key={key}>
-                                    <Card.Title>{item.name}</Card.Title>
+                                    <Card.Title>{item.companyName}</Card.Title>
                                     <Card.Divider />
                                     <View style={styles.cardContent}>
-                                        <Text>Company Name: {item.companyName}</Text>
+                                        <Text>Id: {item.id}</Text>
                                         <Text>Contact Name: {item.contactName}</Text>
                                         <Button title='Go To Detail' onPress={() => navigation.navigate('ProductDetail', { productItem: item })} style={styles.button} />
+                                        <Button title='Delete This Item' onPress={()=> deleteSupplier(item.id)} style={styles.button}/>
                                     </View>
                                 </Card>))
                         }
@@ -43,6 +72,7 @@ const SupplierList = ({ navigation }) => {
 }
 
 const styles = StyleSheet.create({
+   
     button: {
         width: 120,
         marginTop: 8,
