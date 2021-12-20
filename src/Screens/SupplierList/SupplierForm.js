@@ -36,7 +36,7 @@ const NewProductForm = ({ navigation }) => {
             body: JSON.stringify({ companyName: values.companyName, id: Number(values.id), contactName: (values.contactName), contactTitle: (values.contactTitle) })
         }
 
-        fetch('https://northwind.vercel.app/api/suppliers', requestOptions)
+        fetch('https://northwind.vercel.app/api/suppliers/', requestOptions)
             .then((res) => res.json())
             .then(data => {
                 alert('Ürün başarıyla eklenmiştir.')
