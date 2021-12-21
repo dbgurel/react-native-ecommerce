@@ -45,12 +45,14 @@ const SupplierList = ({ navigation }) => {
 
     }
     return (
+
         <> {
             fetchStatus == false ? (<View style={styles.loadingContainer}><ActivityIndicator size="large" color="#0000ff" /></View>)
 
                 : (
                     <ScrollView style={styles.container}>
-                        <View style={styles.addButtonContainer}><Button title='Add New Product' onPress={() => navigation.navigate('NewProductForm')} buttonStyle={styles.addButton} /></View>
+                        <View style={styles.addButtonContainer}><Button title='Add New Product' onPress={() => navigation.navigate('NewProductForm')} buttonStyle={styles.addButton} />
+                        </View>
                         {
                             supplierList && supplierList.map((item, key) => (
                                 <Card key={key}>
